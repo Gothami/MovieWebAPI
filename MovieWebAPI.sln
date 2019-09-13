@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MovieWebAPI", "MovieWebAPI\MovieWebAPI.csproj", "{C6236CC3-11CD-47FB-9545-D3B41001184E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketBookingDataLibrary", "TicketBookingDataLibrary\TicketBookingDataLibrary.csproj", "{3995B3B1-6B73-4D6B-B658-4C6DCEC3D421}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6236CC3-11CD-47FB-9545-D3B41001184E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6236CC3-11CD-47FB-9545-D3B41001184E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6236CC3-11CD-47FB-9545-D3B41001184E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6236CC3-11CD-47FB-9545-D3B41001184E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3995B3B1-6B73-4D6B-B658-4C6DCEC3D421}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3995B3B1-6B73-4D6B-B658-4C6DCEC3D421}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3995B3B1-6B73-4D6B-B658-4C6DCEC3D421}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3995B3B1-6B73-4D6B-B658-4C6DCEC3D421}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
