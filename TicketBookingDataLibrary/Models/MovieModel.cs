@@ -11,5 +11,7 @@ namespace TicketBookingDataLibrary.Models
         public int MovieID { get; set; }
         public string MovieName { get; set; }
         public string MovieDescription { get; set; }
+        public List<string> MovieTheatres = new List<string>();
+        public Dictionary<string, List<DateTime>> MovieLocations { get; set; }
     }
 }

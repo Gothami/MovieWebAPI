@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,13 +9,14 @@ using TicketBookingDataLibrary.Models;
 
 namespace TicketBookingDataLibrary.BusinessLogic
 {
-    public static class MovieProcessor
+    public class MovieProcessor : IMovieModelContext
     {
-        public static int CreateMovie(string movieName, string movieDescription)
+        public DbSet<MovieModel> movieModel { get; set; }
+
+        public int CreateMovie(string movieName, string movieDescription)
         {
             MovieModel data = new MovieModel
             {
-
                 MovieName = movieName,
                 MovieDescription = movieDescription
             };
@@ -24,11 +26,21 @@ namespace TicketBookingDataLibrary.BusinessLogic
             return SQLDataAccess.SaveData(sql, data);
         }
 
-        public static List<MovieModel> RetrieveData()
+        public List<MovieModel> RetrieveData()
         {
             string sql = @"select * from dbo.Movies;";
 
             return SQLDataAccess.LoadData<MovieModel>(sql).ToList();
+        }        
+
+        public void MarkAsModified(MovieModel item)
+        {            
         }
+
+        public void Dispose()
+        {
+
+        }
+
     }
 }
