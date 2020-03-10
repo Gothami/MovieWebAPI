@@ -13,17 +13,33 @@ namespace TicketBookingDataLibrary.BusinessLogic
     {
         public DbSet<MovieModel> movieModel { get; set; }
 
-        public int CreateMovie(string movieName, string movieDescription)
+        public int CreateMovie(string m_movieName, string m_movieDescription, List<string> m_movieTheatres)
         {
+            List<MovieLocationsModel> data2 = new List<MovieLocationsModel>();
             MovieModel data = new MovieModel
             {
-                MovieName = movieName,
-                MovieDescription = movieDescription
+                MovieName = m_movieName,
+                MovieDescription = m_movieDescription
             };
 
-            string sql = @"insert into dbo.Movies(MovieName, MovieDescription) values (@MovieName, @MovieDescription);";
+            foreach (string theatre in m_movieTheatres)
+            {
+                MovieLocationsModel movieTheatre = new MovieLocationsModel
+                {
+                    movieName = m_movieName,
+                    screenName = theatre
+                };
+                data2.Add(movieTheatre);
+            }            
 
-            return SQLDataAccess.SaveData(sql, data);
+            string sql = @"insert into dbo.Movies(MovieName, MovieDescription) values (@MovieName, @MovieDescription);";
+            string sql2 = @"insert into dbo.MovieLocations(MovieName, ScreenName) values (@MovieName, @ScreenName);";
+            
+            int result = SQLDataAccess.SaveData(sql2, data2);
+            if (result == m_movieTheatres.Count)
+                return SQLDataAccess.SaveData(sql, data);
+            else
+                return 0;            
         }
 
         public List<MovieModel> RetrieveData()

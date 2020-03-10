@@ -39,8 +39,7 @@ namespace MovieWebAPI.Controllers
 
             var movieObject = JsonConvert.DeserializeObject<MovieModel>(jsonString);
 
-
-            return movieProcessor.CreateMovie(movieObject.MovieName, movieObject.MovieDescription);
+            return movieProcessor.CreateMovie(movieObject.MovieName, movieObject.MovieDescription, movieObject.MovieTheatres);
         }               
     }
 }

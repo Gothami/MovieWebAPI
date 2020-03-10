@@ -12,7 +12,7 @@ namespace TicketBookingDataLibrary.Models
         DbSet<MovieModel> movieModel { get; }
         void MarkAsModified(MovieModel item);
         List<MovieModel> RetrieveData();
-        int CreateMovie(string movieName, string movieDescription);
+        int CreateMovie(string movieName, string movieDescription, List<string> movieTheatres);
     }
 }
 

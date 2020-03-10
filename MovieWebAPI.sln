@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TicketBookingDataLibrary", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestMovieWebAPI", "TestMovieWebAPI\TestMovieWebAPI.csproj", "{05BE838F-30F9-45EB-932B-A67FB710A405}"
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "TicketBookingDB", "TicketBookingDB\TicketBookingDB.sqlproj", "{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,12 @@ Global
 		{05BE838F-30F9-45EB-932B-A67FB710A405}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05BE838F-30F9-45EB-932B-A67FB710A405}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05BE838F-30F9-45EB-932B-A67FB710A405}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B7DA8EC-2F92-4D15-9E14-620D188D64BB}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
