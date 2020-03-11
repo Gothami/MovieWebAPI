@@ -27,7 +27,7 @@ namespace MovieWebAPI.Controllers
             return movieProcessor.RetrieveData();
         }
 
-        public async Task<int> Post([FromBody] string json)
+        public async Task<int> Post()
         {
             var jsonString = String.Empty;
             var request = HttpContext.Current.Request;

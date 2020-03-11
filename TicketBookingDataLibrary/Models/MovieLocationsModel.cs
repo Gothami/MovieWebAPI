@@ -8,7 +8,8 @@ namespace TicketBookingDataLibrary.Models
 {
     public class MovieLocationsModel
     {
-        public string movieName { get; set; }
-        public string screenName { get; set; }
+        public int ScreenID { get; set; }
+        public string MovieName { get; set; }
+        public string ScreenName { get; set; }
     }
 }

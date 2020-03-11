@@ -26,8 +26,8 @@ namespace TicketBookingDataLibrary.BusinessLogic
             {
                 MovieLocationsModel movieTheatre = new MovieLocationsModel
                 {
-                    movieName = m_movieName,
-                    screenName = theatre
+                    MovieName = m_movieName,
+                    ScreenName = theatre
                 };
                 data2.Add(movieTheatre);
             }            

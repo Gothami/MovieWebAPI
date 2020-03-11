@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Net;
@@ -13,6 +15,11 @@ namespace MovieWebAPI.Controllers
 {
     public class ScreenController : ApiController
     {
+        public IEnumerable<MovieLocationsModel> GetScreenNames(string movieName)
+        {
+            return ScreenProcessor.RetrieveScreensAccordingToMovie(movieName);
+        }
+
         //GET: Screen
         public IHttpActionResult Get(string screenName)
         {
@@ -27,16 +34,20 @@ namespace MovieWebAPI.Controllers
         // POST: Screen
         public HttpResponseMessage Post()
         {
-            HttpResponseMessage result = null;
-            var httpRequest = HttpContext.Current.Request;
-            byte[] inputStream = new byte[httpRequest.InputStream.Length + 1];
-            httpRequest.InputStream.Read(inputStream, 0, inputStream.Length);
-            ContentDisposition contentDisposition = new ContentDisposition(httpRequest.Headers["Content-Disposition"]);
+            HttpResponseMessage result = Request.CreateResponse(HttpStatusCode.NotAcceptable);
+                var jsonString = String.Empty;
+                var request = HttpContext.Current.Request;
+                request.InputStream.Position = 0;
+                using (var inputStream = new StreamReader(request.InputStream))
+                {
+                    jsonString = inputStream.ReadToEnd();
+                }
 
-            if(ScreenProcessor.UploadScreenLayout(contentDisposition.FileName, inputStream) == 1)
-                result = Request.CreateResponse(HttpStatusCode.Created);            
-            else            
-                result = Request.CreateResponse(HttpStatusCode.BadRequest);            
+                var screenLayoutObject = JsonConvert.DeserializeObject<ScreenModel>(jsonString);
+                if (ScreenProcessor.UploadScreenLayout(screenLayoutObject.ScreenName, screenLayoutObject.screenLayout, screenLayoutObject.seatZones) == 1)
+                    result = Request.CreateResponse(HttpStatusCode.Created);
+                else
+                    result = Request.CreateResponse(HttpStatusCode.BadRequest);
 
             return result;
         }

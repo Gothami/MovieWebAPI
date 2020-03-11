@@ -10,5 +10,8 @@ namespace TicketBookingDataLibrary.Models
     {
         public int ScreenID { get; set; }
         public string ScreenName { get; set; }
+        public string ScreenLayoutLocation { get; set; }
+        public byte[] screenLayout { get; set; }
+        public string[] seatZones { get; set; }
     }
 }

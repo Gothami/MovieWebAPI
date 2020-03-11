@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace TicketBookingDataLibrary.Models
 {
-    public class ScreenLayoutModel
+    public class ScreenZone
     {
-        public int screenID { get; set; }
-        public byte[] screenLayout { get; set; }
+        public string ScreenName { get; set; }
+        public string SeatZone { get; set; }
     }
 }

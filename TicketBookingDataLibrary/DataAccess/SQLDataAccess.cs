@@ -43,11 +43,11 @@ namespace TicketBookingDataLibrary.DataAccess
 
         }
 
-        public static int GetMovieID<T>(string sql)
+        public static IEnumerable<dynamic> ExecuteQuery(string sql)
         {
             using (IDbConnection con = new SqlConnection(GetConnectionString()))
             {
-                return con.Query(sql).FirstOrDefault().MovieID;
+                return con.Query(sql);
             }
         }
 
