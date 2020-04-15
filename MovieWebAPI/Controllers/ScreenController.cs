@@ -1,20 +1,21 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Net;
 using System.Net.Http;
-using System.Net.Mime;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using TicketBookingDataLibrary.BusinessLogic;
 using TicketBookingDataLibrary.Models;
 
 namespace MovieWebAPI.Controllers
 {
+    [EnableCors(origins: "http://localhost:16955", headers: "*", methods: "*")]
     public class ScreenController : ApiController
     {
+        //GET: Return all screen names for the given movie name
         public IEnumerable<MovieLocationsModel> GetScreenNames(string movieName)
         {
             return ScreenProcessor.RetrieveScreensAccordingToMovie(movieName);
@@ -23,12 +24,19 @@ namespace MovieWebAPI.Controllers
         //GET: Screen
         public IHttpActionResult Get(string screenName)
         {
-            var stream = File.OpenRead(Path.Combine("E:\\Visual Studio Files\\MovieWebAPI\\CustomerScreenLayouts", screenName + ".png"));
+            var stream = File.OpenRead(Path.Combine("C:\\Goth Documents\\Documents\\Visual Studio 2015\\Projects\\Ticket Booking\\CustomerScreenLayouts", screenName + ".png"));
             var response = new HttpResponseMessage(HttpStatusCode.OK);
             response.Content = new StreamContent(stream);
             response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
             response.Content.Headers.ContentLength = stream.Length;
             return ResponseMessage(response);
+        }
+
+        //GET: Return screen zones for the given screen name
+        [HttpGet]
+        public IEnumerable<string> GetScreenZones(string z_screenName)
+        {
+            return ScreenProcessor.RetrieveScreenZones(z_screenName);
         }
 
         // POST: Screen

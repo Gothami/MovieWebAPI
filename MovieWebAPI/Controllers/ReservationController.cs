@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
+using System.Net;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
@@ -9,22 +12,10 @@ using TicketBookingDataLibrary.BusinessLogic;
 using TicketBookingDataLibrary.Models;
 
 namespace MovieWebAPI.Controllers
-{    
-    public class MovieController : ApiController
+{
+    public class ReservationController : ApiController
     {
-        IMovieModelContext movieProcessor = new MovieProcessor();
-
-        public MovieController() { }
-
-        public MovieController(IMovieModelContext movieModelContext)
-        {
-            movieProcessor = movieModelContext;
-        }
-
-        public IEnumerable<MovieModel> Get()
-        {
-            return movieProcessor.RetrieveData();
-        }
+        ReservationProcessor reservationProcessor = new ReservationProcessor();
 
         public int Post()
         {
@@ -36,9 +27,9 @@ namespace MovieWebAPI.Controllers
                 jsonString = inputStream.ReadToEnd();
             }
 
-            var movieObject = JsonConvert.DeserializeObject<MovieModel>(jsonString);
+            var reservationObject = JsonConvert.DeserializeObject<ReservationModel>(jsonString);
 
-            return movieProcessor.CreateMovie(movieObject.MovieName, movieObject.MovieDescription, movieObject.MovieTheatres);
+            return reservationProcessor.ReserveTickets(reservationObject);            
         }
     }
 }

@@ -60,12 +60,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogic\MovieProcessor.cs" />
+    <Compile Include="BusinessLogic\ReservationProcessor.cs" />
     <Compile Include="BusinessLogic\ScreenProcessor.cs" />
     <Compile Include="BusinessLogic\ShowsProcessor.cs" />
     <Compile Include="DataAccess\SQLDataAccess.cs" />
     <Compile Include="Models\IMovieModelContext.cs" />
     <Compile Include="Models\MovieLocationsModel.cs" />
     <Compile Include="Models\MovieModel.cs" />
+    <Compile Include="Models\ReservationModel.cs" />
     <Compile Include="Models\ScreenZone.cs" />
     <Compile Include="Models\ScreenModel.cs" />
     <Compile Include="Models\ShowModel.cs" />

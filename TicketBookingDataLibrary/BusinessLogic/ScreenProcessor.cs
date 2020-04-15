@@ -89,5 +89,11 @@ namespace TicketBookingDataLibrary.BusinessLogic
             Image screenLayout = Image.FromFile(Path.Combine(ScreenLayoutFilePath, screenName + ".png"));
             return screenLayout;
         }
+
+        public static List<string> RetrieveScreenZones(string m_screenName)
+        {
+            string sql = "select dbo.SeatZones.SeatZone from dbo.SeatZones where dbo.SeatZones.ScreenName = '" + m_screenName + "'";
+            return SQLDataAccess.LoadData<string>(sql).ToList();
+        }
     }
 }
